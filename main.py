@@ -3,6 +3,7 @@ from datetime import datetime, date, time
 
 from fastapi import FastAPI, HTTPException, Depends
 from sqlmodel import Field, SQLModel, create_engine, Session, select
+from fastapi.middleware.cors import CORSMiddleware # <<< ADICIONE ESTA LINHA <<<
 
 # --- Modelos de Dados (SQLModel) ---
 
@@ -90,6 +91,25 @@ app = FastAPI(
     description="API simples para gerenciar agendamentos, barbeiros e serviços.",
     version="1.0.0"
 )
+
+# <<< ADICIONE ESTE BLOCO AQUI, DEPOIS DE app = FastAPI(...) <<<
+origins = [
+    "http://localhost",
+    "http://127.0.0.1",
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1:5500", # <<< ADICIONE ESTA LINHA ESPECIFICAMENTE <<<
+    # "file://", # Descomente esta linha SE você for abrir o index.html direto no navegador (sem um servidor local para o frontend).
+                # Atenção: nem todos os navegadores lidam bem com requisições de 'file://' com CORS, pode ser que ainda precise de um servidor HTTP.
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"], # Permite todos os métodos (GET, POST, PUT, DELETE)
+    allow_headers=["*"], # Permite todos os cabeçalhos
+)
+# >>> FIM DO BLOCO CORS <<<
 
 # Evento de inicialização para criar as tabelas
 @app.on_event("startup")
