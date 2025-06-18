@@ -1,8 +1,9 @@
 var swiper = new Swiper(".swiper", {
-  loop: true,
+loop: true,
   grabCursor: true,
-  slidesPerView: 1, // valor padrão
-  spaceBetween: 16, // valor padrão
+  slidesPerView: 'auto', // Alterado para 'auto' no padrão
+  centeredSlides: true, // Centraliza o slide ativo (opcional, mas pode melhorar o visual com 'auto')
+  spaceBetween: 16, // Valor padrão para o espaço entre slides
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",

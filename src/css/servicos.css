@@ -1,0 +1,188 @@
+/*
+ * ===========================================
+ * ESTILOS GERAIS DA SEÇÃO DE SERVIÇOS
+ * ===========================================
+ */
+#servicos {
+    background-color: black;
+    min-height: 80vh; /* Garante que a seção ocupe pelo menos a altura da tela */
+    padding-top: 3rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.txtServicos {
+    display: flex;
+    flex-direction: column;
+    color: #E6E6E6; /* Cor do título principal da seção */
+    align-items: center;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    /* padding-top: 3rem;  REMOVIDO: Transferido para #servicos para centralizar o padding de toda a seção */
+}
+
+/*
+ * ===========================================
+ * ESTILOS DO SWIPER (CARROSSEL DE SERVIÇOS)
+ * ===========================================
+ */
+.swiper {
+    width: 100%; /* Ocupa a largura total do seu contêiner pai */
+    height: 20rem; /* Altura fixa para o Swiper */
+    max-width: 60rem; /* Limita a largura máxima do Swiper */
+    margin: 0 auto 5rem auto; /* Centraliza o Swiper e adiciona margem inferior */
+    position: relative;
+}
+
+/* Estilos dos slides individuais */
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    color: #C5A880; /* Cor do texto dentro do slide */
+    background-color: #532E1C; /* Cor de fundo do slide */
+    /* width: 230rem; REMOVIDO: Este valor fixo é problemático para responsividade. O Swiper gerencia a largura dos slides automaticamente ou via CSS mais flexível. Se precisar de uma largura mínima, use min-width. */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+    overflow: hidden; /* Garante que nada vaze do slide */
+}
+
+.imgServicos {
+    height: 50%; /* Imagem ocupa 50% da altura do slide */
+    width: 100%; /* Imagem ocupa 100% da largura do slide */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+    padding: 0;
+    border-radius: 0.6rem 0.6rem 0 0; /* Bordas arredondadas apenas no topo */
+}
+
+.nomeServico {
+    font-size: 1.8rem;
+    color: #C5A880; /* Cor do nome do serviço */
+    margin-top: 1rem;
+    margin-bottom: 1rem; /* Reduzi para evitar espaçamento excessivo */
+}
+
+.precoServico {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #E6E6E6; /* Cor do preço, para um bom contraste */
+    padding-bottom: 1rem; /* Padding na parte inferior do preço */
+}
+
+/*
+ * ===========================================
+ * ESTILOS DOS CONTROLES DO SWIPER (SETAS E PAGINAÇÃO)
+ * ===========================================
+ */
+
+/* Setas de navegação (Anterior/Próximo) */
+.swiper-button-prev,
+.swiper-button-next {
+    color: #ffffff !important; /* Cor dourada para as setas */
+    font-size: 2.2rem; /* Tamanho da fonte das setas */
+    font-weight: bold;
+    /* REMOVIDO: `color: var(white);` estava incorreto e duplicado. */
+}
+
+/* Posição das setas (podem ser ajustadas conforme seu layout) */
+.swiper-button-next {
+    right: 0;
+}
+
+.swiper-button-prev {
+    left: 0;
+}
+
+/* Pontos de paginação (indicadores de slide) */
+.swiper-pagination-bullet {
+    background: #ffffff !important; /* Cor dos pontos inativos (um tom escuro de dourado ou marrom) */
+    opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+    background: #ffffff !important; /* Cor dos pontos ativos (dourado) */
+    opacity: 1;
+}
+
+/*
+ * ===========================================
+ * MEDIA QUERIES PARA RESPONSIVIDADE DOS SERVIÇOS
+ * ===========================================
+ */
+@media (max-width: 999px) {
+    #servicos {
+        min-height: 50vh;
+        padding-top: 2rem; /* Reduz o padding superior em telas menores */
+    }
+  .txtServicos {
+        font-size: 2.5rem; /* Reduz o tamanho do título em telas médias */
+    }
+
+    .swiper {
+        padding: 0 20px; /* Ajusta padding lateral para setas em telas menores */
+        min-height: 18rem; /* Altura mínima levemente menor para tablets */
+    }
+
+    .swiper-slide {
+        width: 90vw;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 24px 16px;
+        min-height: 400px; /* **AUMENTADO:** Altura mínima para tablets */
+        max-height: 550px; /* **AUMENTADO:** Altura máxima para tablets */
+    }
+
+    .imgServicos {
+        width: 160px; /* **AUMENTADO:** Imagem maior para tablets (igual ao desktop) */
+        height: 160px; /* **AUMENTADO:** Imagem maior para tablets */
+        margin-bottom: 18px;
+    }
+
+    .nomeServico {
+        font-size: 1.6rem;
+    }
+
+    .precoServico {
+        font-size: 1.3rem;
+    }
+
+    .descServico {
+        font-size: 0.95rem;
+    }
+
+    .btn-servico {
+        font-size: 1rem;
+        padding: 8px 20px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        font-size: 2rem; /* Setas levemente menores */
+    }
+}
+
+@media (max-width: 700px) {
+    .txtServicos {
+        font-size: 2rem; /* Fonte ainda menor para o título */
+        margin-bottom: 1.5rem;
+    }
+
+    .swiper {
+        height: 16rem; /* Altura menor para o Swiper em smartphones */
+        margin-bottom: 2rem;
+    }
+
+    .nomeServico {
+        font-size: 1.4rem;
+    }
+
+    .precoServico {
+        font-size: 1.2rem;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        font-size: 1.5rem; /* Setas menores */
+    }
+}

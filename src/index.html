@@ -128,55 +128,7 @@
       <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
       <script src="/javascript/mobile.js"></script>
       <script src="javascript/carrossel.js"></script>
-      <script>
-  // Abrir modal ao clicar no botão ou menu
-  document.querySelectorAll('a[href="/apibarbearia/src/index.html"], a[href="#agendamento"]').forEach(el => {
-    el.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.getElementById('modal-agendamento').classList.add('active');
-    });
-  });
+      <script src="javascript/agendamento.js"></script>
 
-  // Fechar modal ao clicar no X
-  document.getElementById('close-modal').onclick = function() {
-    document.getElementById('modal-agendamento').classList.remove('active');
-  };
-
-  // Fechar modal ao clicar fora do conteúdo
-  document.getElementById('modal-agendamento').onclick = function(e) {
-    if (e.target === this) this.classList.remove('active');
-  };
-</script>
-
-<style>
-form#appointment-form {
-  width: 100%;
-  max-width: 650px;
-  background: #292929;
-  border-radius: 14px;
-  padding: 10px 8px 8px 8px; /* padding lateral menor */
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  box-sizing: border-box; /* garante que padding não estoura largura */
-}
-
-.form-row {
-  display: flex;
-  flex-direction: row;
-  gap: 8px; /* gap menor */
-  margin-bottom: 0;
-}
-
-.form-group {
-  flex: 1;
-  min-width: 0; /* permite encolher */
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-</style>
 </body>
 </html>
