@@ -5,9 +5,9 @@
  */
 #servicos {
     background-color: black;
-    min-height: 80vh; /* Garante que a seção ocupe pelo menos a altura da tela */
+    min-height: 100vh; /* Garante que a seção ocupe pelo menos a altura da tela */
     padding-top: 3rem;
-    padding-bottom: 0;
+    padding-bottom: 5rem;
     margin-bottom: 0;
 }
 
@@ -28,9 +28,9 @@
  */
 .swiper {
     width: 100%; /* Ocupa a largura total do seu contêiner pai */
-    height: 20rem; /* Altura fixa para o Swiper */
+    
     max-width: 60rem; /* Limita a largura máxima do Swiper */
-    margin: 0 auto 5rem auto; /* Centraliza o Swiper e adiciona margem inferior */
+    margin: 0 auto; /* Centraliza o Swiper */
     position: relative;
 }
 
@@ -49,8 +49,9 @@
 }
 
 .imgServicos {
-    height: 50%; /* Imagem ocupa 50% da altura do slide */
-    width: 100%; /* Imagem ocupa 100% da largura do slide */
+   
+    width: 100%; /* Ocupa toda a largura do slide */
+    height: 20rem; /* Altura fixa para a imagem */
     object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
     padding: 0;
     border-radius: 0.6rem 0.6rem 0 0; /* Bordas arredondadas apenas no topo */
@@ -67,7 +68,7 @@
     text-align: center;
     font-size: 1.5rem;
     color: #E6E6E6; /* Cor do preço, para um bom contraste */
-    padding-bottom: 1rem; /* Padding na parte inferior do preço */
+    padding-bottom: 2rem; /* Padding na parte inferior do preço */
 }
 
 /*
@@ -111,78 +112,92 @@
  * ===========================================
  */
 @media (max-width: 999px) {
-    #servicos {
-        min-height: 50vh;
-        padding-top: 2rem; /* Reduz o padding superior em telas menores */
-    }
-  .txtServicos {
-        font-size: 2.5rem; /* Reduz o tamanho do título em telas médias */
-    }
+.swiper {
+    padding: 0 0.5rem;
+    position: relative;
+  }
 
-    .swiper {
-        padding: 0 20px; /* Ajusta padding lateral para setas em telas menores */
-        min-height: 18rem; /* Altura mínima levemente menor para tablets */
-    }
+  .swiper-slide {
+    width: 90vw;
+    max-width: 340px;
+    min-width: 220px;
+    margin: 0 auto;
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #532E1C;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    box-sizing: border-box;
+    text-align: center;
+  }
 
-    .swiper-slide {
-        width: 90vw;
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 24px 16px;
-        min-height: 400px; /* **AUMENTADO:** Altura mínima para tablets */
-        max-height: 550px; /* **AUMENTADO:** Altura máxima para tablets */
-    }
+  .imgServicos {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 22px;
+    margin-top: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    display: block;
+  }
 
-    .imgServicos {
-        width: 160px; /* **AUMENTADO:** Imagem maior para tablets (igual ao desktop) */
-        height: 160px; /* **AUMENTADO:** Imagem maior para tablets */
-        margin-bottom: 18px;
-    }
+  .nomeServico {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.7rem;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
 
-    .nomeServico {
-        font-size: 1.6rem;
-    }
+  .precoServico {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 1.2rem;
+    margin-top: 0.2rem;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
 
-    .precoServico {
-        font-size: 1.3rem;
-    }
+  .descServico {
+    font-size: 1.05rem;
+    color: #fff;
+    margin-bottom: 1.2rem;
+    text-align: center;
+    line-height: 1.4;
+  }
 
-    .descServico {
-        font-size: 0.95rem;
-    }
+  .btn-servico {
+    font-size: 1.08rem;
+    padding: 12px 28px;
+    margin-top: auto;
+    background: linear-gradient(90deg, #ffd700 60%, #ffb300 100%);
+    color: #222;
+    border: none;
+    border-radius: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
 
-    .btn-servico {
-        font-size: 1rem;
-        padding: 8px 20px;
-    }
+  .btn-servico:hover {
+    background: #fff;
+    color: #222;
+    transform: translateY(-2px) scale(1.04);
+  }
 
-    .swiper-button-prev,
-    .swiper-button-next {
-        font-size: 2rem; /* Setas levemente menores */
-    }
+  .swiper-pagination {
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    position: absolute;
+  }
 }
 
-@media (max-width: 700px) {
-    .txtServicos {
-        font-size: 2rem; /* Fonte ainda menor para o título */
-        margin-bottom: 1.5rem;
-    }
-
-    .swiper {
-        height: 16rem; /* Altura menor para o Swiper em smartphones */
-        margin-bottom: 2rem;
-    }
-
-    .nomeServico {
-        font-size: 1.4rem;
-    }
-
-    .precoServico {
-        font-size: 1.2rem;
-    }
-
-    .swiper-button-prev,
-    .swiper-button-next {
-        font-size: 1.5rem; /* Setas menores */
-    }
-}
